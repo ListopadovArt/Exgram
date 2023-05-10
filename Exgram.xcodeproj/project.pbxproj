@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF2762E02A0C2C9900256577 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AF2762DF2A0C2C9900256577 /* GoogleService-Info.plist */; };
+		AF2762E32A0C2E4A00256577 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = AF2762E22A0C2E4A00256577 /* FirebaseAuth */; };
 		AF777EF42A0C27DA00EF7476 /* ExgramApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF777EF32A0C27DA00EF7476 /* ExgramApp.swift */; };
 		AF777EF62A0C27DA00EF7476 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF777EF52A0C27DA00EF7476 /* ContentView.swift */; };
 		AF777EF82A0C27DC00EF7476 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF777EF72A0C27DC00EF7476 /* Assets.xcassets */; };
@@ -14,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AF2762DF2A0C2C9900256577 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AF777EF02A0C27DA00EF7476 /* Exgram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Exgram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF777EF32A0C27DA00EF7476 /* ExgramApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExgramApp.swift; sourceTree = "<group>"; };
 		AF777EF52A0C27DA00EF7476 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -26,12 +29,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF2762E32A0C2E4A00256577 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AF2762E42A0C2E5A00256577 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AF2762E52A0C2E6E00256577 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		AF777EE72A0C27DA00EF7476 = {
 			isa = PBXGroup;
 			children = (
@@ -51,9 +69,12 @@
 		AF777EF22A0C27DA00EF7476 /* Exgram */ = {
 			isa = PBXGroup;
 			children = (
+				AF2762E52A0C2E6E00256577 /* Model */,
+				AF2762E42A0C2E5A00256577 /* View */,
 				AF777EF32A0C27DA00EF7476 /* ExgramApp.swift */,
 				AF777EF52A0C27DA00EF7476 /* ContentView.swift */,
 				AF777EF72A0C27DC00EF7476 /* Assets.xcassets */,
+				AF2762DF2A0C2C9900256577 /* GoogleService-Info.plist */,
 				AF777EF92A0C27DC00EF7476 /* Preview Content */,
 			);
 			path = Exgram;
@@ -83,6 +104,9 @@
 			dependencies = (
 			);
 			name = Exgram;
+			packageProductDependencies = (
+				AF2762E22A0C2E4A00256577 /* FirebaseAuth */,
+			);
 			productName = Exgram;
 			productReference = AF777EF02A0C27DA00EF7476 /* Exgram.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +135,9 @@
 				Base,
 			);
 			mainGroup = AF777EE72A0C27DA00EF7476;
+			packageReferences = (
+				AF2762E12A0C2E4A00256577 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = AF777EF12A0C27DA00EF7476 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,6 +154,7 @@
 			files = (
 				AF777EFB2A0C27DC00EF7476 /* Preview Assets.xcassets in Resources */,
 				AF777EF82A0C27DC00EF7476 /* Assets.xcassets in Resources */,
+				AF2762E02A0C2C9900256577 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +367,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AF2762E12A0C2E4A00256577 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AF2762E22A0C2E4A00256577 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AF2762E12A0C2E4A00256577 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AF777EE82A0C27DA00EF7476 /* Project object */;
 }
