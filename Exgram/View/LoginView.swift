@@ -18,6 +18,11 @@ struct LoginView: View {
     @State var showError: Bool = false
     @State var errorMessage: String = ""
     @State var isLoading: Bool = false
+    // MARK: UserDefaults
+    @AppStorage("log_status") var logStatus: Bool = false
+    @AppStorage("user_profile_url") var profileURL: URL?
+    @AppStorage("user_name") var userNameStored: String = ""
+    @AppStorage("user_UID") var userUID: String = ""
     
     var body: some View {
         VStack(spacing: 10) {
@@ -89,10 +94,27 @@ struct LoginView: View {
                 // With the help of Swift Concurrency Auth can be done with Single Line
                 try await Auth.auth().signIn(withEmail: email, password: password)
                 print("User Found")
+                try await fetchUser()
             } catch {
                 await setError(error)
             }
         }
+    }
+    
+    // MARK: If User if Found then Fetching User Data From Firestore
+    func fetchUser() async throws {
+        guard let userUID = Auth.auth().currentUser?.uid else {
+            return
+        }
+        let user = try await Firestore.firestore().collection("Users").document(userUID).getDocument(as: User.self)
+        // MARK: UI Must Be Update on Main Thread
+        await MainActor.run(body: {
+            // Setting UserDefaults data and Changing App's Auth Status
+            self.userUID = userUID
+            userNameStored = user.username
+            profileURL = user.userProfileURL
+            logStatus = true
+        })
     }
     
     func resetPassword() {
