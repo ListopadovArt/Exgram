@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct RegisterView: View {
     
@@ -19,6 +20,8 @@ struct RegisterView: View {
     
     // MARK: View Properties
     @Environment(\.dismiss) var dismiss
+    @State var showImagePicker: Bool = false
+    @State var photoItem: PhotosPickerItem?
     
     var body: some View {
         VStack(spacing: 10) {
@@ -54,6 +57,25 @@ struct RegisterView: View {
         }
         .vAlign(.top)
         .padding(15)
+        .photosPicker(isPresented: $showImagePicker, selection: $photoItem)
+        .onChange(of: photoItem) { newValue in
+            // MARK: Extracting UIImage From PhotoItem
+            if let newValue {
+                Task{
+                    do {
+                        guard let imageData = try await newValue.loadTransferable(type: Data.self) else {
+                            return
+                        }
+                        // MARK: UI Must Be Update on Main Thread
+                        await MainActor.run(body: {
+                            userBProfilePicData = imageData
+                        })
+                    } catch {
+                        
+                    }
+                }
+            }
+        }
     }
     
     @ViewBuilder
@@ -74,6 +96,9 @@ struct RegisterView: View {
             .frame(width: 85, height: 85)
             .clipShape(Circle())
             .containerShape(Circle())
+            .onTapGesture {
+                showImagePicker.toggle()
+            }
             .padding(.top, 25)
             
             TextField("Username", text: $userName)
