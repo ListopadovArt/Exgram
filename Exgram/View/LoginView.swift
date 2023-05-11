@@ -12,6 +12,8 @@ struct LoginView: View {
     // MARK: - User Details
     @State var email: String = ""
     @State var password: String = ""
+    // MARK: View Properties
+    @State var creatAccount: Bool = false
     
     var body: some View {
         VStack(spacing: 10) {
@@ -40,7 +42,7 @@ struct LoginView: View {
                     .hAlign(.trailing)
                 
                 Button {
-                    print("Press")
+                    
                 } label: {
                     // MARK: Login Button
                     Text("Sign in")
@@ -57,7 +59,7 @@ struct LoginView: View {
                     .foregroundColor(.gray)
                 
                 Button("Register Now") {
-                    
+                    creatAccount.toggle()
                 }
                 .fontWeight(.bold)
                 .foregroundColor(.black)
@@ -67,6 +69,10 @@ struct LoginView: View {
         }
         .vAlign(.top)
         .padding(15)
+        // MARK: Register View VIA Sheets
+        .fullScreenCover(isPresented: $creatAccount) {
+            RegisterView()
+        }
     }
 }
 
