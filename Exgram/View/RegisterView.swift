@@ -153,6 +153,7 @@ struct RegisterView: View {
     
     func registerUser() {
         isLoading = true
+        closeKeyboard()
         Task {
             do {
                 // Step 1: Creating Firebase Account

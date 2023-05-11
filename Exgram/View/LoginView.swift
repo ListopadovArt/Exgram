@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Firebase
+import FirebaseFirestore
 
 struct LoginView: View {
     
@@ -89,6 +90,7 @@ struct LoginView: View {
     
     func loginUser() {
         isLoading = true
+        closeKeyboard()
         Task {
             do {
                 // With the help of Swift Concurrency Auth can be done with Single Line
@@ -148,6 +150,11 @@ struct LoginView_Previews: PreviewProvider {
 
 // MARK: - View Extensions For UI Building
 extension View {
+    // MARK: Closing All Active Keyboards
+    func closeKeyboard(){
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+    
     // MARK: Disabling with Opacity
     func disableWithOpacity(_ condition: Bool) -> some View {
         self.disabled(condition)
