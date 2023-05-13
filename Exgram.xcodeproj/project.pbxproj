@@ -25,6 +25,8 @@
 		AFECF2B02A0D64E10064B2E5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFECF2AF2A0D64E10064B2E5 /* User.swift */; };
 		AFECF2B22A0D778F0064B2E5 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFECF2B12A0D778F0064B2E5 /* LoadingView.swift */; };
 		AFECF2B52A0D812C0064B2E5 /* View+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFECF2B42A0D812C0064B2E5 /* View+Utils.swift */; };
+		AFEDE4922A0F6FC5008DC153 /* CreateNewPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEDE4912A0F6FC5008DC153 /* CreateNewPost.swift */; };
+		AFEDE4942A0F7009008DC153 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEDE4932A0F7009008DC153 /* Post.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		AFECF2AF2A0D64E10064B2E5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AFECF2B12A0D778F0064B2E5 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		AFECF2B42A0D812C0064B2E5 /* View+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Utils.swift"; sourceTree = "<group>"; };
+		AFEDE4912A0F6FC5008DC153 /* CreateNewPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewPost.swift; sourceTree = "<group>"; };
+		AFEDE4932A0F7009008DC153 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				AFECF2AF2A0D64E10064B2E5 /* User.swift */,
+				AFEDE4932A0F7009008DC153 /* Post.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -124,6 +129,7 @@
 				AF7E7F752A0E328D005719C9 /* MainView.swift */,
 				AF7E7F772A0E348A005719C9 /* ProfileView.swift */,
 				AF7E7F792A0E46B9005719C9 /* ReusableProfileContent.swift */,
+				AFEDE4912A0F6FC5008DC153 /* CreateNewPost.swift */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -237,10 +243,12 @@
 				AF2762E92A0C2F6500256577 /* LoginView.swift in Sources */,
 				AF7E7F782A0E348A005719C9 /* ProfileView.swift in Sources */,
 				AF7E7F7A2A0E46BA005719C9 /* ReusableProfileContent.swift in Sources */,
+				AFEDE4942A0F7009008DC153 /* Post.swift in Sources */,
 				AF7E7F762A0E328D005719C9 /* MainView.swift in Sources */,
 				AF9A31422A0D024500806637 /* RegisterView.swift in Sources */,
 				AF777EF62A0C27DA00EF7476 /* ContentView.swift in Sources */,
 				AFECF2B02A0D64E10064B2E5 /* User.swift in Sources */,
+				AFEDE4922A0F6FC5008DC153 /* CreateNewPost.swift in Sources */,
 				AFECF2B52A0D812C0064B2E5 /* View+Utils.swift in Sources */,
 				AF777EF42A0C27DA00EF7476 /* ExgramApp.swift in Sources */,
 				AFECF2B22A0D778F0064B2E5 /* LoadingView.swift in Sources */,
