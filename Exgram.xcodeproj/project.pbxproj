@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF0C79CF2A1160960040F4A1 /* PostCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0C79CE2A1160960040F4A1 /* PostCardView.swift */; };
 		AF2762E02A0C2C9900256577 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AF2762DF2A0C2C9900256577 /* GoogleService-Info.plist */; };
 		AF2762E32A0C2E4A00256577 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = AF2762E22A0C2E4A00256577 /* FirebaseAuth */; };
 		AF2762E92A0C2F6500256577 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2762E82A0C2F6500256577 /* LoginView.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AF0C79CE2A1160960040F4A1 /* PostCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCardView.swift; sourceTree = "<group>"; };
 		AF2762DF2A0C2C9900256577 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AF2762E82A0C2F6500256577 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		AF777EF02A0C27DA00EF7476 /* Exgram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Exgram.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,6 +138,7 @@
 				AFEDE4912A0F6FC5008DC153 /* CreateNewPost.swift */,
 				AF90365A2A1006BC00CF7C8D /* PostView.swift */,
 				AFDBE3972A110F61002A6CDD /* ReusablePostView.swift */,
+				AF0C79CE2A1160960040F4A1 /* PostCardView.swift */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				AFEDE4922A0F6FC5008DC153 /* CreateNewPost.swift in Sources */,
 				AFECF2B52A0D812C0064B2E5 /* View+Utils.swift in Sources */,
 				AF777EF42A0C27DA00EF7476 /* ExgramApp.swift in Sources */,
+				AF0C79CF2A1160960040F4A1 /* PostCardView.swift in Sources */,
 				AF90365B2A1006BC00CF7C8D /* PostView.swift in Sources */,
 				AFECF2B22A0D778F0064B2E5 /* LoadingView.swift in Sources */,
 			);
