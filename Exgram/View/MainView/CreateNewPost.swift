@@ -180,14 +180,13 @@ struct CreateNewPost: View {
         /// Write Document to Firebase Firestore
         let _ = try Firestore.firestore().collection("Posts").addDocument(from: post, completion: { error in
             
-            guard error != nil else {
+            guard error == nil else {
                 return
             }
             /// Post Successfully Stored at Firebase
             isLoading = false
             onPost(post)
             dismiss()
-            
         })
     }
     
