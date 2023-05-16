@@ -55,6 +55,23 @@ struct PostCardView: View {
             }
         }
         .hAlign(.leading)
+        .overlay(alignment: .topTrailing, content: {
+            // Displaying Delete Button (if it's Author of that post)
+            if post.userUID == userUID {
+                Menu {
+                    Button("Delete Post", role: .destructive, action: deletePost)
+                } label: {
+                    Image(systemName: "ellipsis")
+                        .font(.caption)
+                        .rotationEffect(.init(degrees: -90))
+                        .foregroundColor(.black)
+                        .padding(8)
+                        .containerShape(Rectangle())
+                }
+                .offset(x: 8)
+            }
+            
+        })
         .onAppear{
             // Когда Post виден на экране, добавляется список документов, в противном случае список удаляется.
             // Adding Only Once
@@ -76,6 +93,16 @@ struct PostCardView: View {
                         }
                     }
                 })
+            }
+        }
+        .onDisappear{
+            /// Так как live updates предоставляются только тогда, когда Post отображается на экране. Мы можем снизить стоимость прочтения документа.
+            // MARK: Applying SnapShot Listner Only When the Post is Available on the Screen
+            // Else Removing the Listner (It saves unwanted live updates from the post which was swiped away from the screen)
+            
+            if let docListner {
+                docListner.remove()
+                self.docListner = nil
             }
         }
     }
@@ -153,4 +180,22 @@ struct PostCardView: View {
         }
     }
     
+    // Deleting Post
+    func deletePost(){
+        Task{
+            // Step 1. Delete Image from Firebase Storage if present
+            do {
+                if post.imageReferenceID != ""{
+                    try await Storage.storage().reference().child("Post_Images").child(post.imageReferenceID).delete()
+                }
+                // Step 2. Delete FireStore Document
+                guard let postID = post.id else {
+                    return
+                }
+                try await Firestore.firestore().collection("Posts").document(postID).delete()
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
 }
