@@ -17,6 +17,8 @@ struct ReusablePostView: View {
     @Binding var posts: [Post]
     // MARK: View Properties
     @State var isFetching: Bool = true
+    // MARK: Pagination
+    @State private var paginationDoc: QueryDocumentSnapshot?
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
@@ -76,23 +78,60 @@ struct ReusablePostView: View {
                     posts.removeAll{post.id == $0.id}
                 }
             }
+            .onAppear{
+                // When Last Post Appears, Fetching New Post (If there)
+                if post.id == posts.last?.id && paginationDoc != nil {
+                    /*
+                     Почему проверка разбивки документа на страницы не
+                     является нулевой?
+                     Предположим, что всего имеется 40 постов,
+                     и что при первоначальной выборке было выбрано 20
+                     постов, причем документ с разбивкой
+                     на страницы является 20-м постом, и что при появлении
+                     последнего поста он выбирает следующий раздел
+                     из 20 постов,
+                     при этом документ с разбивкой на страницы является 40-м постом.
+                     Когда он попытается получить другой набор из 20,
+                     он будет пустым, потому что больше нет доступных постов, поэтому документ с разбивкой на страницы будет равен нулю, и он больше не будет пытаться получить посты.
+                     
+                     print("Fetch New Post's")
+                     */
+                    Task {
+                        await fetchPosts()
+                    }
+                }
+            }
+            
             Divider()
                 .padding(.horizontal,-15)
         }
     }
     
+    // Fetching Post's
     func fetchPosts() async {
         do {
             var query: Query!
-            query = Firestore.firestore().collection("Posts")
-                .order(by: "publishedDate", descending: true)
-                .limit(to: 20)
+            // Implementing Pagination
+            if let paginationDoc {
+                query = Firestore.firestore().collection("Posts")
+                    .order(by: "publishedDate", descending: true)
+                    .start(afterDocument: paginationDoc)
+                    .limit(to: 20)
+            } else {
+                query = Firestore.firestore().collection("Posts")
+                    .order(by: "publishedDate", descending: true)
+                    .limit(to: 20)
+            }
+            
+            
             let docs = try await query.getDocuments()
             let fetchedPosts = docs.documents.compactMap { doc -> Post? in
                 try? doc.data(as: Post.self)
             }
             await MainActor.run(body: {
-                posts = fetchedPosts
+                posts.append(contentsOf: fetchedPosts)
+                // Сохранение последнего извлеченного документа, чтобы его можно было использовать для разбивки на страницы в Firebase Firestore
+                paginationDoc = docs.documents.last
                 isFetching = false
             })
         } catch {
