@@ -13,7 +13,8 @@ import Firebase
 /// Сделав Post повторно используемым компонентом, мы избавимся от множества избыточного кода.
 
 struct ReusablePostView: View {
-    
+    var basedOnUID: Bool = false
+    var uid: String = ""
     @Binding var posts: [Post]
     // MARK: View Properties
     @State var isFetching: Bool = true
@@ -46,8 +47,14 @@ struct ReusablePostView: View {
         }
         .refreshable {
             // Scroll to Refresh
+            // Disbaling Refresh for UID based Post's
+            guard !basedOnUID else {
+                return
+            }
             isFetching = true
             posts = []
+            // Resetting Pagination Doc
+            paginationDoc = nil // Значение необходимо установить nil. Когда пользователь обновляет Posts, поскольку обновление пользователя начнется с самых последних написанных Posts и, если документ с разбивкой на страницы не был обновлен, будут получены самые последние документы.
             await fetchPosts()
         }
         .task {
@@ -123,6 +130,12 @@ struct ReusablePostView: View {
                     .limit(to: 20)
             }
             
+            // New Query For UID Based Document Fetch
+            // Simply Filter the Post's Which is not belongs to this UID
+            
+            if basedOnUID {
+                query = query.whereField("userUID", isEqualTo: uid)
+            }
             
             let docs = try await query.getDocuments()
             let fetchedPosts = docs.documents.compactMap { doc -> Post? in

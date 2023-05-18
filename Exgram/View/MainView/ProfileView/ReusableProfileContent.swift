@@ -13,6 +13,7 @@ import SDWebImageSwiftUI
 struct ReusableProfileContent: View {
     
     var user: User
+    @State private var fetchedPosts: [Post] = []
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
@@ -56,6 +57,8 @@ struct ReusableProfileContent: View {
                     .foregroundColor(.black)
                     .hAlign(.leading)
                     .padding(.vertical, 15)
+                // Вот почему создавалась ReusablePostView, чтобы при передаче пользовательского uid оно просто извлекало все записиЮ, связанные с пользовательским uid, избегая кодов избыточности:
+                ReusablePostView(basedOnUID: true, uid: user.userUID, posts: $fetchedPosts)
             }
             .padding(15)
         }
