@@ -59,6 +59,7 @@ struct LoginView: View {
                         .fillView(.black)
                 }
                 .padding(.top, 10)
+                .disableWithOpacity(email == "" || password == "")
             }
             
             // MARK: Register Button
@@ -77,6 +78,11 @@ struct LoginView: View {
         }
         .vAlign(.top)
         .padding(15)
+        .background(
+            LinearGradient(colors: [.white, colorApp],
+                           startPoint: .top, endPoint: .bottom)
+            .ignoresSafeArea()
+        )
         .overlay(content: {
             LoadingView(show: $isLoading)
         })

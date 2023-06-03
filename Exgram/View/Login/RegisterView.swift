@@ -69,6 +69,11 @@ struct RegisterView: View {
         }
         .vAlign(.top)
         .padding(15)
+        .background(
+            LinearGradient(colors: [.white, colorApp],
+                           startPoint: .top, endPoint: .bottom)
+            .ignoresSafeArea()
+        )
         .overlay(content: {
             LoadingView(show: $isLoading)
         })

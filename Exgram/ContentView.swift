@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+let colorApp = Color(UIColor(red: 1.00, green: 0.98, blue: 0.88, alpha: 1.00))
+
 struct ContentView: View {
     @AppStorage("log_status") var logStatus: Bool = false
     var body: some View {
