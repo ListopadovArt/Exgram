@@ -72,13 +72,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AF2762E42A0C2E5A00256577 /* View */ = {
+		AF2387CC2A361276001977C6 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				AFECF2B12A0D778F0064B2E5 /* LoadingView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		AF2762E42A0C2E5A00256577 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
 				AF7E7F742A0E3279005719C9 /* Login */,
 				AF7E7F732A0E3253005719C9 /* MainView */,
 			);
-			path = View;
+			path = Modules;
 			sourceTree = "<group>";
 		};
 		AF2762E52A0C2E6E00256577 /* Model */ = {
@@ -110,12 +118,12 @@
 		AF777EF22A0C27DA00EF7476 /* Exgram */ = {
 			isa = PBXGroup;
 			children = (
+				AF2387CC2A361276001977C6 /* UI */,
 				AFECF2B32A0D81180064B2E5 /* Utils */,
 				AF2762E52A0C2E6E00256577 /* Model */,
-				AF2762E42A0C2E5A00256577 /* View */,
+				AF2762E42A0C2E5A00256577 /* Modules */,
 				AF777EF32A0C27DA00EF7476 /* ExgramApp.swift */,
 				AF777EF52A0C27DA00EF7476 /* ContentView.swift */,
-				AFECF2B12A0D778F0064B2E5 /* LoadingView.swift */,
 				AF777EF72A0C27DC00EF7476 /* Assets.xcassets */,
 				AF2762DF2A0C2C9900256577 /* GoogleService-Info.plist */,
 				AF777EF92A0C27DC00EF7476 /* Preview Content */,
