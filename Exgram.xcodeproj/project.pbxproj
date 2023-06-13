@@ -16,6 +16,8 @@
 		AF1780502A156629005B45D0 /* SearchUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF17804F2A156629005B45D0 /* SearchUserView.swift */; };
 		AF2762E02A0C2C9900256577 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AF2762DF2A0C2C9900256577 /* GoogleService-Info.plist */; };
 		AF2762E92A0C2F6500256577 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2762E82A0C2F6500256577 /* LoginView.swift */; };
+		AF70FA0A2A3645BA006AFA8E /* Highlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF70FA092A3645B9006AFA8E /* Highlight.swift */; };
+		AF70FA0C2A364600006AFA8E /* ShowCaseRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF70FA0B2A364600006AFA8E /* ShowCaseRoot.swift */; };
 		AF777EF42A0C27DA00EF7476 /* ExgramApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF777EF32A0C27DA00EF7476 /* ExgramApp.swift */; };
 		AF777EF62A0C27DA00EF7476 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF777EF52A0C27DA00EF7476 /* ContentView.swift */; };
 		AF777EF82A0C27DC00EF7476 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF777EF72A0C27DC00EF7476 /* Assets.xcassets */; };
@@ -38,6 +40,8 @@
 		AF17804F2A156629005B45D0 /* SearchUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserView.swift; sourceTree = "<group>"; };
 		AF2762DF2A0C2C9900256577 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AF2762E82A0C2F6500256577 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		AF70FA092A3645B9006AFA8E /* Highlight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Highlight.swift; sourceTree = "<group>"; };
+		AF70FA0B2A364600006AFA8E /* ShowCaseRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCaseRoot.swift; sourceTree = "<group>"; };
 		AF777EF02A0C27DA00EF7476 /* Exgram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Exgram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF777EF32A0C27DA00EF7476 /* ExgramApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExgramApp.swift; sourceTree = "<group>"; };
 		AF777EF52A0C27DA00EF7476 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -83,6 +87,7 @@
 		AF2762E42A0C2E5A00256577 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				AF70FA082A364597006AFA8E /* Onboarding */,
 				AF7E7F742A0E3279005719C9 /* Login */,
 				AF7E7F732A0E3253005719C9 /* MainView */,
 			);
@@ -96,6 +101,15 @@
 				AFEDE4932A0F7009008DC153 /* Post.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		AF70FA082A364597006AFA8E /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				AF70FA092A3645B9006AFA8E /* Highlight.swift */,
+				AF70FA0B2A364600006AFA8E /* ShowCaseRoot.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		AF777EE72A0C27DA00EF7476 = {
@@ -288,6 +302,8 @@
 				AFEDE4922A0F6FC5008DC153 /* CreateNewPost.swift in Sources */,
 				AFECF2B52A0D812C0064B2E5 /* View+Utils.swift in Sources */,
 				AF777EF42A0C27DA00EF7476 /* ExgramApp.swift in Sources */,
+				AF70FA0C2A364600006AFA8E /* ShowCaseRoot.swift in Sources */,
+				AF70FA0A2A3645BA006AFA8E /* Highlight.swift in Sources */,
 				AF0C79CF2A1160960040F4A1 /* PostCardView.swift in Sources */,
 				AF90365B2A1006BC00CF7C8D /* PostView.swift in Sources */,
 				AFECF2B22A0D778F0064B2E5 /* LoadingView.swift in Sources */,
@@ -348,7 +364,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -402,7 +418,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

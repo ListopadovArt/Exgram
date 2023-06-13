@@ -28,6 +28,10 @@ struct PostView: View {
                             .background(.black, in: Circle())
                     }
                     .padding(15)
+                    .showCase(order: 1,
+                              title: "Create new post",
+                              cornerRadius: 50,
+                              style: .continuous)
                 }
                 .toolbar(content: {
                     ToolbarItem(placement: .navigationBarTrailing) {
@@ -38,6 +42,10 @@ struct PostView: View {
                                 .tint(.black)
                                 .scaleEffect(0.9)
                         }
+                        .showCase(order: 2,
+                                  title: "Search users",
+                                  cornerRadius: 10,
+                                  style: .continuous)
                     }
                 })
                 .navigationTitle("Post's")
@@ -46,7 +54,6 @@ struct PostView: View {
             CreateNewPost { post in
                 // Adding Created post at the Top of the Recent Posts
                 recentsPosts.insert(post, at: 0)
-                
             }
         }
     }

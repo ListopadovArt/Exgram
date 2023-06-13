@@ -28,6 +28,7 @@ struct RegisterView: View {
     @State var showError: Bool = false
     @State var errorMessage: String = ""
     @State var isLoading: Bool = false
+    @Binding var isOnboarding: Bool
     
     // MARK: UserDefaults
     @AppStorage("log_status") var logStatus: Bool = false
@@ -95,6 +96,9 @@ struct RegisterView: View {
                     }
                 }
             }
+        }
+        .onAppear{
+            isOnboarding = true
         }
         // MARK: Displaying Alert
         .alert(errorMessage, isPresented: $showError, actions: {})
@@ -203,11 +207,5 @@ struct RegisterView: View {
             showError.toggle()
             isLoading = false
         })
-    }
-}
-
-struct RegisterView_Previews: PreviewProvider {
-    static var previews: some View {
-        RegisterView()
     }
 }

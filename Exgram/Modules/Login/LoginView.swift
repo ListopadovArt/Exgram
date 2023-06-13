@@ -19,6 +19,7 @@ struct LoginView: View {
     @State var showError: Bool = false
     @State var errorMessage: String = ""
     @State var isLoading: Bool = false
+    @Binding var isOnboarding: Bool
     // MARK: UserDefaults
     @AppStorage("log_status") var logStatus: Bool = false
     @AppStorage("user_profile_url") var profileURL: URL?
@@ -66,7 +67,6 @@ struct LoginView: View {
             HStack {
                 Text("Don't have an account?")
                     .foregroundColor(.gray)
-                
                 Button("Register Now") {
                     creatAccount.toggle()
                 }
@@ -88,7 +88,10 @@ struct LoginView: View {
         })
         // MARK: Register View VIA Sheets
         .fullScreenCover(isPresented: $creatAccount) {
-            RegisterView()
+            RegisterView(isOnboarding: $isOnboarding)
+        }
+        .onAppear{
+            isOnboarding = false
         }
         // MARK: Displaying Alert
         .alert(errorMessage, isPresented: $showError, actions: {})
@@ -145,11 +148,5 @@ struct LoginView: View {
             showError.toggle()
             isLoading = false
         })
-    }
-}
-
-struct LoginView_Previews: PreviewProvider {
-    static var previews: some View {
-        LoginView()
     }
 }
