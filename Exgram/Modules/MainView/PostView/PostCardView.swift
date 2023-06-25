@@ -114,11 +114,18 @@ struct PostCardView: View {
             Button(action: likePost){
                 // Когда пользователь ставит лайк, мы добавляем UID этого пользователя в массив likedIDs, и в зависимости от того, содержим массив или не содержит UID такого пользователя, то мы меняем изображение на соответствующее
                 Image(systemName: post.likedIDs.contains(userUID) ? "hand.thumbsup.fill" : "hand.thumbsup")
+                    .particleEffect(
+                        systemImage: "hand.thumbsup.fill",
+                        status: post.likedIDs.contains(userUID),
+                        activeTint: .pink,
+                        inActiveTint: .black
+                    )
+                    .foregroundColor(post.likedIDs.contains(userUID) ? .pink : .black)
             }
             
             Text("\(post.likedIDs.count)")
                 .font(.caption)
-                .foregroundColor(.gray)
+                .foregroundColor(post.likedIDs.contains(userUID) ? .pink : .gray)
             
             Button(action: dislikePost){
                 // Когда пользователь ставит лайк, мы добавляем UID этого пользователя в массив dislikedIDs, и в зависимости от того, содержим массив или не содержит UID такого пользователя, то мы меняем изображение на соответствующее

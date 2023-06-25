@@ -26,6 +26,8 @@
 		AF7E7F782A0E348A005719C9 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7E7F772A0E348A005719C9 /* ProfileView.swift */; };
 		AF7E7F7A2A0E46BA005719C9 /* ReusableProfileContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7E7F792A0E46B9005719C9 /* ReusableProfileContent.swift */; };
 		AF90365B2A1006BC00CF7C8D /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF90365A2A1006BC00CF7C8D /* PostView.swift */; };
+		AF9770582A485D410089C8B0 /* Particle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9770572A485D410089C8B0 /* Particle.swift */; };
+		AF97705A2A485D580089C8B0 /* ParticleEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9770592A485D580089C8B0 /* ParticleEffect.swift */; };
 		AF9A31422A0D024500806637 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9A31412A0D024500806637 /* RegisterView.swift */; };
 		AFDBE3982A110F61002A6CDD /* ReusablePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDBE3972A110F61002A6CDD /* ReusablePostView.swift */; };
 		AFECF2B02A0D64E10064B2E5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFECF2AF2A0D64E10064B2E5 /* User.swift */; };
@@ -51,6 +53,8 @@
 		AF7E7F772A0E348A005719C9 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		AF7E7F792A0E46B9005719C9 /* ReusableProfileContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableProfileContent.swift; sourceTree = "<group>"; };
 		AF90365A2A1006BC00CF7C8D /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
+		AF9770572A485D410089C8B0 /* Particle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Particle.swift; sourceTree = "<group>"; };
+		AF9770592A485D580089C8B0 /* ParticleEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticleEffect.swift; sourceTree = "<group>"; };
 		AF9A31412A0D024500806637 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		AFDBE3972A110F61002A6CDD /* ReusablePostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusablePostView.swift; sourceTree = "<group>"; };
 		AFECF2AF2A0D64E10064B2E5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -79,6 +83,7 @@
 		AF2387CC2A361276001977C6 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				AF9770542A485CDA0089C8B0 /* Buttoon */,
 				AFECF2B12A0D778F0064B2E5 /* LoadingView.swift */,
 			);
 			path = UI;
@@ -193,6 +198,15 @@
 			path = ProfileView;
 			sourceTree = "<group>";
 		};
+		AF9770542A485CDA0089C8B0 /* Buttoon */ = {
+			isa = PBXGroup;
+			children = (
+				AF9770572A485D410089C8B0 /* Particle.swift */,
+				AF9770592A485D580089C8B0 /* ParticleEffect.swift */,
+			);
+			path = Buttoon;
+			sourceTree = "<group>";
+		};
 		AFECF2A82A0D5CF80064B2E5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -296,6 +310,8 @@
 				AFEDE4942A0F7009008DC153 /* Post.swift in Sources */,
 				AF7E7F762A0E328D005719C9 /* MainView.swift in Sources */,
 				AFDBE3982A110F61002A6CDD /* ReusablePostView.swift in Sources */,
+				AF9770582A485D410089C8B0 /* Particle.swift in Sources */,
+				AF97705A2A485D580089C8B0 /* ParticleEffect.swift in Sources */,
 				AF9A31422A0D024500806637 /* RegisterView.swift in Sources */,
 				AF777EF62A0C27DA00EF7476 /* ContentView.swift in Sources */,
 				AFECF2B02A0D64E10064B2E5 /* User.swift in Sources */,
